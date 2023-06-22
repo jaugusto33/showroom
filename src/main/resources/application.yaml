@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:C:/eclipse_jee/data
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+    
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  logging:
+    level:
+    ROOT: DEBUG
+    org.hibernate: DEBUG
+    org:
+      hibernate:
+        type: trace   
+        sql: debug  
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8       
+  h2:
+    console.enabled: true  
+  error:
+    whitelabel:
+      enabled: false  
