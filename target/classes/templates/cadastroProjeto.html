@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width" />
+<title>Cadastro de Projeto</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<form class="form-inline" method="POST" th:object="${projeto}" th:action="@{/cadastroProjeto}" style="margin: 20px 0">
+<div class="panel-heading">
+<h1 class="panel-title">Cadastro de Projeto</h1>
+
+<div class="form-group">
+	<div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Nome do Projeto</label>
+      <input type="text" class="form-control"  th:field="*{dsNome}"/>
+     </div>
+   
+     <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Descrição</label>
+	  <input type="text" class="form-control"  th:field="*{dsDescricao}" />
+	 </div>
+	 
+	  <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Data Inicio: </label>
+	  <input type="date" class="form-control"  th:field="*{dtInicio}"/>
+	 </div>
+ 
+ 
+     <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Data Previsão do Fim:</label>
+	  <input type="date" class="form-control"   th:field="*{dtPrevisaoFim}"/>
+	 </div>
+ 
+ 
+     <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Data de Término:</label>
+	  <input type="date"  class="form-control" placeholder="Data de Fim:"  th:field="*{dtFim}"/>
+	 </div>
+ 
+ 
+     <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Risco Associado:</label>
+	  <input type="text" class="form-control"  th:field="*{dsRisco}"/>
+	 </div>
+ 
+     <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Orçamento:</label>
+	  <input type="text" class="form-control" placeholder="Orçamento:"  th:field="*{vlOrcamento}"/>
+	 </div>
+    
+      <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Gerente:</label>
+	  <select th:field="*{idGerente}">
+        <option value="0"></option>
+        <option th:each="pessoa : ${pessoas}" th:value="${pessoa.id}" th:text="${pessoa.dsNome}"></option>
+        </select>
+	 </div>
+	 
+	 <div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">Status:</label>
+	  <select th:field="*{dsStatus}">
+        <option value="Em análise">Em Análise</option>
+        <option value="Análise realizada">Análise realizada</option>
+        <option value="Análise Aprovada">Em Análise</option>
+        <option value="Iniciado">Iniciado</option>
+        <option value="Em andamento">Em andamento</option>
+        <option value="Encerrado">encerrado</option>
+        <option value="Cancelado">Cancelado</option>
+              
+      </select>
+	 </div>
+
+<button type="submit" class="btn btn-primary">Salvar</button>
+</div>
+</div>
+</form>
